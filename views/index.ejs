@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>QR- you can create quiz with that</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+<style>
+    body {
+      background-color: grey;
+      color: rgb(248, 24, 24);
+      margin: 0;
+      height: 100vh; /* Set the body height to 100% of the viewport */
+    }
+
+    .card {
+      background-color: black;
+      height: 100%; /* Set the card height to 100% of its containing element (body in this case) */
+    }
+  /* </style> */
+</head>
+<body style="background-color: grey; color: rgb(249, 28, 183);">
+<div class="m-3">
+<div class="card card-default" style="background-color: black; height: 200%; ">
+	<div class="card-header" style="background-color: black; color: white;"> QR Generator</div>
+	<div class="card-body">
+	<% if(QR_code){ %>
+	<h3 class="text-center">Your smile in every scan.</h3>
+	<div class="text-center my-3">
+	<img src="<%= QR_code %>">
+	<br>
+	<a href="/download?file_path=<%= img_src %>"> Download</a>
+	</div>
+	<% }else{ %>
+		<form action="/" method="POST">
+			<div class="form-group">
+				<label for="url">Enter URL</label>
+				<input type="text" name="url" id="url" class="form-control" required placeholder="Enter URL here..">
+			</div>
+			<div class="form-group text-center">
+				<button type="submit" class="btn btn-primary">Generate</button>
+			</div>
+		</form>
+	<% } %>
+	</div>
+</div>
+
+</div>
+
+</body>
+</html>
